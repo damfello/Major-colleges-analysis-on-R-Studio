@@ -8,40 +8,8 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+##Connection to DBs
 
-```{r Update the ClickHouse Package}
-devtools::install_github("IMSMWU/RClickhouse")
-```
-
-```{r Connections}
-
-library(ggplot2)
-library(reshape2)
-library(scales)
-library(tidyverse)
-library(usethis)
-library(devtools)
-library(RODBC)
-library(odbc)
-library(DBI)
-library(dplyr)
-library(data.table)
-
-
-conCH <- DBI::dbConnect(RClickhouse::clickhouse(),
-                            host="s10.techadsmedia.com",
-                            port=9000,
-                            user="marketing",
-                            password="ONkxMmsNDKFCqxidyICmlvyczE3")
-
-
-DBI::dbGetQuery(conCH, "SHOW DATABASES")
-
-ConMy <- odbcConnect("mysql_techads",
-                     uid= "readOnly4all",
-                     pwd= "7CHdeUf07hXK4xqxgKWRGkLtGN4ErucIZ0k0YhOVfubYN2q")
-
-```
 
 ### ALERT: Red Flag: Update week date on the 6 Connections and Update date on graphs labels
 ```{r, All Flags}
